@@ -355,6 +355,10 @@
     background-size: 60px;
   }
 
+  .cat__artist-list {
+    height: fit-content;
+  }
+
   /* PROJECTS */
 
   .projects__text {
@@ -540,10 +544,6 @@
   .gallery__page {
     margin-left: 20px;
     margin-right: 20px;
-  }
-
-  .cat__artist-list {
-    height: fit-content;
   }
 
   .cat__no-content-img {
