@@ -132,7 +132,7 @@ input {
 .hero__dropdown-link:focus-visible,
 .hero__search-button:focus-visible,
 .event__more:focus-visible,
-.tooltip-btn:focus-visible,
+.tooltip:focus-visible,
 .projects__partners-swipe:focus-visible,
 .connect__link:focus-visible,
 .footer__link:focus-visible,
@@ -203,14 +203,14 @@ input {
   transition-timing-function: ease-in-out;
 }
 
-.header__link:focus span,
-.header__login:focus span {
+.header__link:focus-visible span,
+.header__login:focus-visible span {
   color: #fff;
   background-color: var(--violet);
   outline-color: var(--violet);
 }
 
-.header__login:focus span svg path {
+.header__login:focus-visible span svg path {
   fill: #fff;
 }
 
@@ -300,13 +300,13 @@ input {
   transition-timing-function: ease-in-out;
 }
 
-.hero__item-name:focus span {
+.hero__item-name:focus-visible span {
   color: #fff;
   background-color: var(--violet);
   outline: 6px solid var(--violet);
 }
 
-.hero__item-name:focus span svg path {
+.hero__item-name:focus-visible span svg path {
   stroke: #fff;
 }
 
@@ -405,7 +405,7 @@ input {
 }
 
 .hero__dropdown-link:hover,
-.hero__dropdown-link:focus {
+.hero__dropdown-link:focus-visible {
   outline-color: var(--violet);
 }
 
@@ -573,8 +573,8 @@ input {
   fill: var(--violet);
 }
 
-.hero__search-button:focus rect,
-.hero__search-button:focus path {
+.hero__search-button:focus-visible rect,
+.hero__search-button:focus-visible path {
   fill: var(--violet-dark);
 }
 
@@ -618,7 +618,7 @@ input {
   transition-timing-function: ease-in-out;
 }
 
-.hero__button:focus {
+.hero__button:focus-visible {
   outline-color: var(--violet-light);
   outline-offset: 3px;
 }
@@ -834,7 +834,7 @@ input {
 }
 
 .modal__close:hover svg path,
-.modal__close:focus svg path {
+.modal__close:focus-visible svg path {
   fill: var(--violet);
 }
 
@@ -904,9 +904,9 @@ label {
 #gallery__check-XIX:hover + span,
 #gallery__check-XX:hover + span,
 #gallery__check-now:hover + span,
-#gallery__check-XIX:focus + span,
-#gallery__check-XX:focus + span,
-#gallery__check-now:focus + span {
+#gallery__check-XIX:focus-visible + span,
+#gallery__check-XX:focus-visible + span,
+#gallery__check-now:focus-visible + span {
   border-color: var(--violet);
 }
 
@@ -973,7 +973,7 @@ label {
   padding: 0;
 }
 
-.gallery__swipe:focus svg path:nth-child(2),
+.gallery__swipe:focus-visible svg path:nth-child(2),
 .gallery__swipe:active svg path:nth-child(2) {
   stroke: #000;
 }
@@ -1012,7 +1012,7 @@ label {
   object-fit: cover;
 }
 
-.gallery__item:focus {
+.gallery__item:focus-visible {
   outline-color: var(--violet);
 }
 
@@ -1149,7 +1149,7 @@ label {
   cursor: pointer;
 }
 
-.cat__artist-item:focus span {
+.cat__artist-item:focus-visible span {
   background-color: var(--violet);
 }
 
@@ -1245,7 +1245,7 @@ label {
 }
 
 .cat__item.is-active .cat__name svg path,
-.cat__name:focus svg path {
+.cat__name:focus-visible svg path {
   fill: var(--violet-light);
 }
 
@@ -1254,7 +1254,7 @@ label {
 }
 
 .cat__item:hover .cat__name svg path:nth-child(2),
-.cat__name:focus svg path:nth-child(2) {
+.cat__name:focus-visible svg path:nth-child(2) {
   stroke: var(--violet-light);
 }
 
@@ -1264,7 +1264,7 @@ label {
   transition-timing-function: ease-in-out;
 }
 
-.cat__name:focus span {
+.cat__name:focus-visible span {
   color: #fff;
   background-color: var(--violet);
 }
@@ -1370,7 +1370,7 @@ label {
   transition-timing-function: ease-in-out;
 }
 
-.event__more:focus span {
+.event__more:focus-visible span {
   color: #fff;
   background-color: var(--violet);
   outline-color: var(--violet);
@@ -1416,8 +1416,8 @@ label {
   transition-timing-function: ease-in-out;
 }
 
-.event__swipe:focus path:nth-child(2),
-.projects__partners-swipe:focus path:nth-child(2) {
+.event__swipe:focus-visible path:nth-child(2),
+.projects__partners-swipe:focus-visible path:nth-child(2) {
   stroke: var(--violet);
 }
 
@@ -1464,7 +1464,7 @@ label {
 }
 
 .projects__link:focus,
-.cat__no-content-link:focus {
+.cat__no-content-link:focus-visible {
   color: #fff;
   background-color: var(--violet);
   outline-color: var(--violet);
@@ -1490,7 +1490,6 @@ label {
 /* TOOLTIP */
 
 .tooltip {
-  position: relative;
   display: inline-block;
 }
 
@@ -1500,39 +1499,27 @@ label {
   padding-right: 0;
 }
 
-.tooltip-text {
-  position: absolute;
-  left: 50%;
-  bottom: 120%;
-  width: 264px;
+.tippy-box[data-theme~='tooltip-theme'] {
+  padding: 10px;
   font-size: 12px;
   line-height: 16px;
   text-align: center;
   background-color: var(--violet);
-  padding: 10px;
+  border-radius: 0;
   color: #fff;
-  transform: translateX(-50%);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity var(--time) ease-in-out;
 }
 
-.tooltip-text::after {
-  content: "";
-  position: absolute;
-  left: calc(50% - 7px);
-  top: 100%;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 8px 7px 0 7px;
-  border-color: #9e5cd0 transparent transparent transparent;
+.tippy-box[data-theme~='tooltip-theme'][data-placement^='top'] > .tippy-arrow::before {
+  border-top-color: var(--violet);
 }
-
-.tooltip:hover .tooltip-text,
-.tooltip-btn:focus + .tooltip-text {
-  opacity: 1;
-  visibility: visible;
+.tippy-box[data-theme~='tooltip-theme'][data-placement^='bottom'] > .tippy-arrow::before {
+  border-bottom-color: var(--violet);
+}
+.tippy-box[data-theme~='tooltip-theme'][data-placement^='left'] > .tippy-arrow::before {
+  border-left-color: var(--violet);
+}
+.tippy-box[data-theme~='tooltip-theme'][data-placement^='right'] > .tippy-arrow::before {
+  border-right-color: var(--violet);
 }
 
 .tooltip svg,
@@ -1541,7 +1528,7 @@ label {
 }
 
 .tooltip:hover svg,
-.tooltip-btn:focus svg {
+.tooltip-btn:focus-visible svg {
   fill: var(--violet-light);
 }
 
@@ -1621,7 +1608,7 @@ label {
 
 .projects__item:hover .projects__img,
 .projects__item:active .projects__img,
-.projects__item a:focus .projects__img {
+.projects__item a:focus-visible .projects__img {
   filter: grayscale(0);
 }
 
@@ -1673,7 +1660,7 @@ label {
   background-color: rgb(234, 234, 234);
 }
 
-.connect__input:focus {
+.connect__input:focus-visible {
   background-color: transparent;
 }
 
@@ -1691,7 +1678,7 @@ label {
   transition-timing-function: ease-in-out;
 }
 
-.connect__form-button:focus {
+.connect__form-button:focus-visible {
   outline: 2px solid var(--violet-light);
   outline-offset: 2px;
 }
@@ -1739,7 +1726,7 @@ label {
   transition-timing-function: ease-in-out;
 }
 
-.connect__link:focus svg,
+.connect__link:focus-visible svg,
 .connect__link:hover svg {
   opacity: 0.5;
 }
@@ -1790,7 +1777,7 @@ label {
   transition-timing-function: ease-in-out;
 }
 
-.footer__link:focus svg path,
+.footer__link:focus-visible svg path,
 .footer__link:hover svg path {
   fill: white;
 }

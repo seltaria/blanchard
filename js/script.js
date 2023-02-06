@@ -377,6 +377,13 @@ document.addEventListener('DOMContentLoaded', function () {
     myMap.geoObjects.add(myGeoObject);
   };
 
+  /* TOOLTIP */
+
+  tippy('.tooltip', {
+    theme: 'tooltip-theme',
+    maxWidth: 300,
+  });
+
   /* OTHER */
 
   function changeFormButtonText() {
