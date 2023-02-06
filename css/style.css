@@ -130,6 +130,7 @@ input {
 .header__login:focus-visible,
 .hero__item-name:focus-visible,
 .hero__dropdown-link:focus-visible,
+.hero__search-button:focus-visible,
 .event__more:focus-visible,
 .tooltip-btn:focus-visible,
 .projects__partners-swipe:focus-visible,
@@ -540,39 +541,46 @@ input {
   color: #fff;
   border-bottom: 1px solid #fff;
   outline: none;
+  transition: border-color .25s ease-in-out;
 }
 
 .hero__search:focus,
 .hero__search:hover {
-  border-bottom: 1px solid var(--violet);
+  border-color: var(--violet);
 }
 
 .hero__search:active {
-  border-bottom: 1px solid var(--violet-dark);
+  border-color: var(--violet-dark);
 }
-
-/* .hero__search-button {
-  padding-left: 0;
-  padding-right: 0;
-  transform: translateY(7px);
-} */
 
 .hero__search-block {
   position: relative;
 }
 
-.hero__search-icon {
+.hero__search-button {
   position: absolute;
-  left: -30px;
+  left: -35px;
   top: 7px;
 }
 
-.hero__search-icon::before {
-  display: block;
-  content: "";
-  background: url('../img/search.svg');
-  width: 22px;
-  height: 21px;
+.hero__search-button rect,
+.hero__search-button path {
+  transition: fill .25s ease-in-out;
+}
+
+.hero__search-button:hover rect,
+.hero__search-button:hover path {
+  fill: var(--violet);
+}
+
+.hero__search-button:focus rect,
+.hero__search-button:focus path {
+  fill: var(--violet-dark);
+}
+
+.hero__search-button:active rect,
+.hero__search-button:active path {
+  fill: var(--violet-light);
 }
 
 .hero__search::placeholder{

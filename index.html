@@ -17,6 +17,7 @@
   <script defer src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
   <script defer src="https://api-maps.yandex.ru/2.1/?apikey=ваш_API-ключ&lang=ru_RU"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
   <script defer src="js/choices.min.js"></script>
   <script defer src="js/just-validate.min.js"></script>
   <script defer src="js/inputmask.min.js"></script>
@@ -305,7 +306,15 @@
 
         </ul>
         <div class="hero__search-block">
-          <div class="hero__search-icon"></div>
+          <button class="hero__search-button" aria-label="Начать поиск по сайту">
+            <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="6.8678" height="1.71695"
+                transform="matrix(-0.718931 0.695081 0.718931 0.695081 4.9375 15.6534)" fill="white" />
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M12.0969 18C7.53041 18 3.99692 14.3229 3.99692 10C3.99692 5.67715 7.53041 2 12.0969 2C16.6634 2 20.1969 5.67715 20.1969 10C20.1969 14.3229 16.6634 18 12.0969 18ZM12.0969 20C6.57408 20 2.09692 15.5228 2.09692 10C2.09692 4.47715 6.57408 0 12.0969 0C17.6198 0 22.0969 4.47715 22.0969 10C22.0969 15.5228 17.6198 20 12.0969 20Z"
+                fill="white" />
+            </svg>
+          </button>
           <input type="text" class="hero__search" placeholder="Поиск по сайту">
         </div>
 
@@ -1020,7 +1029,7 @@
       <div class="swiper event__swiper">
 
         <ul class="list event__list swiper-wrapper">
-          <li class="event__item swiper-slide">
+          <li class="event__item swiper-slide" tabindex="-1">
             <img class="event__item-img" src="img/event-1-1920.jpg" alt="Книжная гравюра">
             <div class="event__item-content">
               <p class="event__place">

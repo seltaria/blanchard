@@ -235,6 +235,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   });
 
+  const eventItems = document.querySelectorAll('.event__item');
+  eventItems.forEach(element => element.tabIndex = "-1");
+
   /* -------------------------------------------- */
 
   const projectSwiper = new Swiper('.projects__list-wrapper', {
@@ -301,7 +304,6 @@ document.addEventListener('DOMContentLoaded', function () {
     btns.forEach((btn) => {
       btn.addEventListener('click', function (evt) {
         const path = this.getAttribute(dataPath);
-        // console.log(path);
         const target = document.querySelector(`.cat__tab[${dataTarget}="${path}"]`);
 
 
@@ -387,15 +389,29 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   changeFormButtonText();
 
-
   window.addEventListener('resize', () => {
     changeFormButtonText();
   })
 
   /* ----------------------------------------------------------------- */
 
+  let tl = gsap.timeline({ paused: true });
+  tl
+    .to('.header__menu', { duration: 0, display: 'flex', ease: 'none' })
+    .fromTo('.header__menu', { y: -100, opacity: 0 }, { duration: 0.3, y: 0, opacity: 1 })
+
+  /* ----------------------------------------------------------------- */
+
+  const searchButton = document.querySelector('.header__search-mobile');
+  const closeSearch = document.querySelector('.header__close-search');
+  const searchField = document.querySelector('.header__search-open');
+  const searchIcon = document.querySelector('.header__search-mobile');
+  const logoIcon = document.querySelector('.header__logo');
+
   const burgerButton = document.querySelector('.header__burger');
   const burgerMenu = document.querySelector('.header__menu');
+  const menuItems = document.querySelectorAll('.header__item');
+  const menuLoginButton = document.querySelector('.header__login');
 
   function findScrollWidth() {
     let div = document.createElement('div');
@@ -408,57 +424,86 @@ document.addEventListener('DOMContentLoaded', function () {
     return scrollWidth;
   }
 
-  function changeOverflowBehaviour() {
-    if (burgerMenu.classList.contains('open')) {
-      document.body.style.overflow = 'hidden';
-      searchButton.style.marginRight = `${findScrollWidth()}px`;
+  function burgerDefaultStyle() {
+    if (window.innerWidth > 1440) {
+      burgerMenu.style.display = 'flex';
+      burgerMenu.style.opacity = 1;
+      burgerMenu.style.transform = 'translate(0px, 0px)';
     } else {
-      document.body.style.overflowY = 'auto';
-      searchButton.style.marginRight = '0';
+      burgerMenu.style.display = 'none';
+      burgerMenu.style.opacity = 0;
+      burgerMenu.style.transform = 'translate(0px, -100px)';
     }
   }
+  setTimeout(() => { burgerDefaultStyle() }, 0);
+
+  function openMenuFunction() {
+    document.body.style.overflowY = 'hidden';
+    searchButton.style.marginRight = `${findScrollWidth()}px`;
+  }
+
+  function closeMenuFunction() {
+    burgerMenu.classList.remove('open');
+    burgerButton.classList.remove('open');
+    tl.reverse();
+    document.body.style.overflowY = 'auto';
+    searchButton.style.marginRight = '0';
+  }
+
+  /* Если меняется ширина экрана, закрыть меню: */
+  window.addEventListener('resize', () => {
+    closeMenuFunction();
+
+    burgerDefaultStyle();
+  })
 
   burgerButton.addEventListener('click', () => {
     burgerMenu.classList.toggle('open');
     burgerButton.classList.toggle('open');
 
-    const headerMenu = document.querySelector('.header__menu')
-    headerMenu.addEventListener('click', () => {
-      console.log('headerMenuClick')
-      burgerMenu.classList.remove('open');
-      burgerButton.classList.remove('open');
-      changeOverflowBehaviour();
-    })
-
-    /* Если меняется ширина экрана, закрыть меню: */
-    window.addEventListener('resize', () => {
-      burgerMenu.classList.remove('open');
-      burgerButton.classList.remove('open');
-    })
-
-    changeOverflowBehaviour();
+    if (burgerButton.classList.contains('open')) {
+      tl.play();
+      openMenuFunction();
+    } else {
+      closeMenuFunction();
+    }
   })
+
+  /* При клике на ссылки навигации закрыть меню: */
+  menuItems.forEach((item) => {
+    item.addEventListener('click', () => {
+      closeMenuFunction();
+    })
+  })
+
+  /* При клике на кнопку входа закрыть меню: */
+  menuLoginButton.addEventListener('click', () => {
+    closeMenuFunction();
+  })
+
 
   /* ----------------------------------------------------------------- */
 
-  const searchButton = document.querySelector('.header__search-mobile');
-  const closeSearch = document.querySelector('.header__close-search');
-  const searchField = document.querySelector('.header__search-open');
-  const searchIcon = document.querySelector('.header__search-mobile');
-  const logoIcon = document.querySelector('.header__logo');
+  let tlSearch = gsap.timeline({ paused: true });
+  tlSearch
+    .to('.header__search-open', { duration: 0, display: 'flex', ease: 'none' })
+    .fromTo('.header__search-open', { x: 200, opacity: 0 }, { duration: 0.3, x: 0, opacity: 1 })
+
+  /* ----------------------------------------------------------------- */
 
   function closeSearchFunc() {
     searchField.classList.remove('open');
     searchIcon.classList.remove('open');
     logoIcon.classList.remove('open');
 
-    closeSearch.tabIndex = '-1';
-    searchField.tabIndex = '-1';
+    tlSearch.reverse();
   }
 
   searchButton.addEventListener('click', () => {
     searchField.classList.add('open');
     searchIcon.classList.add('open');
+
+    tlSearch.play();
 
     if (window.innerWidth < 950) {
       logoIcon.classList.add('open');
