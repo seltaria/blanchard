@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
       });
       modals.classList.remove('modal__overlay--visible');
 
-      document.body.style.overflow = 'auto';
+      document.body.style.overflowY = 'auto';
     });
   });
 
@@ -117,10 +117,10 @@ document.addEventListener('DOMContentLoaded', function () {
     slidesPerView: 1,
     slidesPerGroup: 1,
     loop: true,
-    // autoplay: {
-    //   delay: 5000,
-    //   disableOnInteraction: false,
-    // },
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
 
   });
 
@@ -396,21 +396,47 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const burgerButton = document.querySelector('.header__burger');
   const burgerMenu = document.querySelector('.header__menu');
-  burgerButton.addEventListener('click', () => {
-    burgerMenu.classList.toggle('open');
-    burgerButton.classList.toggle('open');
 
-    window.addEventListener('resize', () => {
-      burgerMenu.classList.remove('open');
-    })
+  function findScrollWidth() {
+    let div = document.createElement('div');
+    div.style.overflowY = 'scroll';
+    div.style.width = '50px';
+    div.style.height = '50px';
+    document.body.append(div);
+    let scrollWidth = div.offsetWidth - div.clientWidth;
+    div.remove();
+    return scrollWidth;
+  }
 
+  function changeOverflowBehaviour() {
     if (burgerMenu.classList.contains('open')) {
-      document.body.style.overflowY = 'hidden';
-      searchButton.style.marginRight = '25px';
+      document.body.style.overflow = 'hidden';
+      searchButton.style.marginRight = `${findScrollWidth()}px`;
     } else {
       document.body.style.overflowY = 'auto';
       searchButton.style.marginRight = '0';
     }
+  }
+
+  burgerButton.addEventListener('click', () => {
+    burgerMenu.classList.toggle('open');
+    burgerButton.classList.toggle('open');
+
+    const headerMenu = document.querySelector('.header__menu')
+    headerMenu.addEventListener('click', () => {
+      console.log('headerMenuClick')
+      burgerMenu.classList.remove('open');
+      burgerButton.classList.remove('open');
+      changeOverflowBehaviour();
+    })
+
+    /* Если меняется ширина экрана, закрыть меню: */
+    window.addEventListener('resize', () => {
+      burgerMenu.classList.remove('open');
+      burgerButton.classList.remove('open');
+    })
+
+    changeOverflowBehaviour();
   })
 
   /* ----------------------------------------------------------------- */

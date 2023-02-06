@@ -37,16 +37,17 @@
   /* HEADER */
 
   .header__menu {
-    height: 0;
-    margin-top: 0;
-    transition-property: height, margin;
-    transition-duration: .5s;
-    transition-timing-function: ease-in-out;
+    display: none;
+    height: calc(100vh - 150px);
+    /* transition-property: height, margin; */
+    /* transition-duration: .5s; */
+    /* transition-timing-function: ease-in-out; */
   }
 
   .header__menu.open {
+    display: flex;
+    align-items: flex-start;
     margin-top: 50px;
-    height: calc(100vh - 162px);
   }
 
   .header__container {
@@ -57,10 +58,6 @@
   .header__nav .header__list {
     flex-direction: column;
     gap: 40px;
-  }
-
-  .header__item {
-    font-size: 24px;
   }
 
   .header__top {
@@ -90,7 +87,8 @@
   .header__search-input {
     margin-right: 10px;
     margin-left: 10px;
-    height: 32px;
+    height: 30px;
+    width: 200px;
     color: #FFF;
     font-size: 20px;
     border-bottom: 1px solid #FFF;
@@ -100,12 +98,12 @@
   .header__search-open {
     display: flex;
     position: absolute;
-    right: -400px;
-    top: 0;
+    right: -500px;
+    top: -5px;
     transition: right .3s ease-in-out;
   }
 
-  .header__close-search {
+  .header__close-search svg {
     width: 20px;
     height: 20px;
     padding: 0;
@@ -132,7 +130,7 @@
   }
 
   .header__search-mobile.open {
-    transform: translateX(-292px);
+    transform: translateX(-250px);
   }
 
   .header__menu.open .header__login {
@@ -153,18 +151,14 @@
 
   /* BURGER */
 
-  :root {
-    --burger-height: 3px;
-  }
-
   .header__burger {
-		--burger-height: 3px;
+		--burger-height: 2px;
 		display: block;
 		position: relative;
 		border: none;
 		padding: 0;
-		width: 30px;
-		height: 23px;
+		width: 25px;
+		height: 18px;
 		color: rgb(255, 255, 255);
 		background-color: transparent;
 		cursor: pointer;
@@ -326,6 +320,10 @@
   .header__logo.open {
     opacity: 0;
     visibility: hidden;
+  }
+
+  .header__login {
+    margin-bottom: 50px;
   }
 
   /* HERO */
@@ -594,6 +592,10 @@
     height: 50px;
   }
 
+  .swiper {
+    margin-left: auto;
+  }
+
 }
 
 @media (max-width: 500px) {
@@ -604,12 +606,39 @@
     padding-left: 15px;
   }
 
+  .header__top {
+    height: 45px;
+  }
+
   .header__container button img {
     height: 18px;
   }
 
   .header__logo {
     width: 96px;
+    height: 22px;
+  }
+
+  .header__search-mobile svg,
+  .header__close-search svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .header__search-input {
+    width: 180px;
+  }
+
+  .header__search-mobile.open {
+    transform: translateX(-210px);
+  }
+
+  .header__menu.open {
+    height: calc(100vh - 90px);
+  }
+
+  .hero__button {
+    padding: 8px 30px;
   }
 
   .gallery__left {
