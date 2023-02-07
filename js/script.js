@@ -459,7 +459,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /* Если меняется ширина экрана, закрыть меню: */
   window.addEventListener('resize', () => {
-    closeMenuFunction();
+    if (window.innerWidth < 1440) {
+      closeMenuFunction();
+    }
 
     burgerDefaultStyle();
   })
