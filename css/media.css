@@ -3,7 +3,7 @@
   /* HEADER */
 
   .header__logo {
-    margin-right: 0;
+    margin-right: 46px;
   }
 
   /* HERO */
@@ -59,6 +59,10 @@
     gap: 40px;
   }
 
+  .header__item {
+    font-size: 16px;
+  }
+
   .header__top {
     display: flex;
     justify-content: space-between;
@@ -73,7 +77,8 @@
 
   .header__login {
     margin-top: auto;
-    padding: 10px 80px;
+    padding: 6px 50px;
+    font-size: 16px;
     border: 2px solid #9D5CD0;
     border-radius: 30px;
   }

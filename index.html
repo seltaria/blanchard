@@ -437,22 +437,46 @@
         <div class="gallery__pictures swiper gallery-swiper">
           <ul class="list gallery__pictures-list swiper-wrapper">
             <li data-path="one" class="gallery__item swiper-slide" style="width: 350px" tabindex="0">
-              <img class="gallery__item-img" src="img/gallery-1-1920.jpg" alt="">
+              <picture class="swiper-slide">
+                <source srcset="img/gallery-1-768.jpg" media="(max-width: 768px)">
+                <source srcset="img/gallery-1-1024.jpg" media="(max-width: 1024px)">
+                <img class="gallery__item-img" src="img/gallery-1-1920.jpg" alt="">
+              </picture>
             </li>
             <li data-path="two" class="gallery__item swiper-slide" style="width: 350px" tabindex="0">
-              <img class="gallery__item-img" src="img/gallery-2-1920.jpg" alt="">
+              <picture class="swiper-slide">
+                <source srcset="img/gallery-2-768.jpg" media="(max-width: 768px)">
+                <source srcset="img/gallery-2-1024.jpg" media="(max-width: 1024px)">
+                <img class="gallery__item-img" src="img/gallery-2-1920.jpg" alt="">
+              </picture>
             </li>
             <li data-path="three" class="gallery__item swiper-slide" style="width: 350px" tabindex="0">
-              <img class="gallery__item-img" src="img/gallery-3-1920.jpg" alt="">
+              <picture class="swiper-slide">
+                <source srcset="img/gallery-3-768.jpg" media="(max-width: 768px)">
+                <source srcset="img/gallery-3-1024.jpg" media="(max-width: 1024px)">
+                <img class="gallery__item-img" src="img/gallery-3-1920.jpg" alt="">
+              </picture>
             </li>
             <li data-path="four" class="gallery__item swiper-slide" style="width: 350px" tabindex="0">
-              <img class="gallery__item-img" src="img/gallery-4-1920.jpg" alt="">
+              <picture class="swiper-slide">
+                <source srcset="img/gallery-4-768.jpg" media="(max-width: 768px)">
+                <source srcset="img/gallery-4-1024.jpg" media="(max-width: 1024px)">
+                <img class="gallery__item-img" src="img/gallery-4-1920.jpg" alt="">
+              </picture>
             </li>
             <li data-path="five" class="gallery__item swiper-slide" style="width: 350px" tabindex="0">
-              <img class="gallery__item-img" src="img/gallery-5-1920.jpg" alt="">
+              <picture class="swiper-slide">
+                <source srcset="img/gallery-5-768.jpg" media="(max-width: 768px)">
+                <source srcset="img/gallery-5-1024.jpg" media="(max-width: 1024px)">
+                <img class="gallery__item-img" src="img/gallery-5-1920.jpg" alt="">
+              </picture>
             </li>
             <li data-path="six" class="gallery__item swiper-slide" style="width: 350px" tabindex="0">
-              <img class="gallery__item-img" src="img/gallery-6-1920.jpg" alt="">
+              <picture class="swiper-slide">
+                <source srcset="img/gallery-6-768.jpg" media="(max-width: 768px)">
+                <source srcset="img/gallery-6-1024.jpg" media="(max-width: 1024px)">
+                <img class="gallery__item-img" src="img/gallery-6-1920.jpg" alt="">
+              </picture>
             </li>
           </ul>
 
@@ -553,7 +577,12 @@
 
         <ul class="list event__list swiper-wrapper">
           <li class="event__item swiper-slide" tabindex="-1">
-            <img class="event__item-img" src="img/event-1-1920.jpg" alt="Книжная гравюра">
+            <picture>
+              <source srcset="img/event-1-320.jpg" media="(max-width: 320px)">
+              <source srcset="img/event-1-768.jpg" media="(max-width: 768px)">
+              <source srcset="img/event-1-1024.jpg" media="(max-width: 1024px)">
+              <img class="event__item-img" src="img/event-1-1920.jpg" alt="Книжная гравюра">
+            </picture>
             <div class="event__item-content">
               <p class="event__place">
                 Музей им. Щусева <br> с 20 марта по 30 апреля
@@ -572,7 +601,12 @@
             </div>
           </li>
           <li class="event__item swiper-slide">
-            <img class="event__item-img" src="img/event-2-1920.jpg" alt="Дмитрий Петров и Сергей Ильин">
+            <picture>
+              <source srcset="img/event-2-320.jpg" media="(max-width: 320px)">
+              <source srcset="img/event-2-768.jpg" media="(max-width: 768px)">
+              <source srcset="img/event-2-1024.jpg" media="(max-width: 1024px)">
+              <img class="event__item-img" src="img/event-2-1920.jpg" alt="Дмитрий Петров и Сергей Ильин">
+            </picture>
             <div class="event__item-content">
               <p class="event__place">
                 ММОМА <br> 24 марта 19:00
@@ -590,7 +624,12 @@
             </div>
           </li>
           <li class="event__item swiper-slide">
-            <img class="event__item-img" src="img/event-3-1920.jpg" alt="Выставка «Формация 2020»">
+            <picture>
+              <source srcset="img/event-3-320.jpg" media="(max-width: 320px)">
+              <source srcset="img/event-3-768.jpg" media="(max-width: 768px)">
+              <source srcset="img/event-3-1024.jpg" media="(max-width: 1024px)">
+              <img class="event__item-img" src="img/event-3-1920.jpg" alt="Выставка «Формация 2020»">
+            </picture>
             <div class="event__item-content">
               <p class="event__place">
                 Еврейский музей <br> с 31 марта по 21 апреля
@@ -610,8 +649,13 @@
           </li>
 
           <li class="event__item swiper-slide">
-            <img class="event__item-img" src="img/event-4-1920.jpg"
-              alt="Джон Винзор. Фотографии из серии «Метафора серебра»">
+            <picture>
+              <source srcset="img/event-4-320.jpg" media="(max-width: 320px)">
+              <source srcset="img/event-4-768.jpg" media="(max-width: 768px)">
+              <source srcset="img/event-4-1024.jpg" media="(max-width: 1024px)">
+              <img class="event__item-img" src="img/event-4-1920.jpg"
+                alt="Джон Винзор. Фотографии из серии «Метафора серебра»">
+            </picture>
             <div class="event__item-content">
               <p class="event__place">
                 ММАМ <br> с 8 апреля по 20 мая
@@ -630,7 +674,13 @@
             </div>
           </li>
           <li class="event__item swiper-slide">
-            <img class="event__item-img" src="img/event-5-1920.jpg" alt="24 международная биеннале молодого искусства">
+            <picture>
+              <source srcset="img/event-5-320.jpg" media="(max-width: 320px)">
+              <source srcset="img/event-5-768.jpg" media="(max-width: 768px)">
+              <source srcset="img/event-5-1024.jpg" media="(max-width: 1024px)">
+              <img class="event__item-img" src="img/event-5-1920.jpg"
+                alt="24 международная биеннале молодого искусства">
+            </picture>
             <div class="event__item-content">
               <p class="event__place">
                 Третьяковка на Крымском валу <br> с 30 марта по 30 апреля
