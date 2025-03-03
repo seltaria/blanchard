@@ -52,6 +52,7 @@ html {
   font-size: var(--size-normal);
   line-height: 2;
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
 }
 
 * {
@@ -799,12 +800,9 @@ input {
 
 .modal__description {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-right: 50px;
-  padding-left: 50px;
+  padding: 50px;
   background-color: #fff;
+  overflow: auto;
 }
 
 .modal__artist {
